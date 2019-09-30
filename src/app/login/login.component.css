@@ -1,0 +1,12 @@
+mat-card {
+  margin: auto;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-error {
+  color: red;
+}

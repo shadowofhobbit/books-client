@@ -1,0 +1,33 @@
+.header {
+  position: sticky;
+
+  h1 {
+    font-size: 1.5em;
+    margin-left: 0.5rem;
+  }
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 768px) {
+    width: 750px;
+  }
+
+  @media (min-width: 992px) {
+    width: 970px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
