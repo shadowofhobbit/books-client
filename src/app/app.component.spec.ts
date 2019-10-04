@@ -1,12 +1,26 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
+import {LoginComponent} from './login/login.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
       ],
+      imports: [
+        FormsModule,
+        NoopAnimationsModule,
+        HttpClientTestingModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule
+      ]
     }).compileComponents();
   }));
 
@@ -26,6 +40,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to BooksUser!');
+    expect(compiled.querySelector('h1').textContent).toContain('BooksUser');
   });
 });
