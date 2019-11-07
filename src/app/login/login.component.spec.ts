@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -19,7 +20,8 @@ describe('LoginComponent', () => {
         HttpClientTestingModule,
         MatInputModule,
         MatButtonModule,
-        MatCardModule
+        MatCardModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();

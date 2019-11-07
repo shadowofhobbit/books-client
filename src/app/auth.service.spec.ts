@@ -9,6 +9,7 @@ import anything = jasmine.anything;
 describe('AuthService', () => {
   let service: AuthService;
   let httpMock: HttpTestingController;
+  let storage;
   const callbacks = {
     done() {
       console.log('Done Called');
@@ -25,11 +26,12 @@ describe('AuthService', () => {
     service = TestBed.get(AuthService);
     httpMock = TestBed.get(HttpTestingController);
     spyOnAllFunctions(callbacks);
-    spyOn(localStorage, 'setItem');
+    storage = Object.getPrototypeOf(localStorage);
   });
 
-  describe('#login', () => {
+  describe('login', () => {
     it('should call done() and save token', () => {
+      spyOn(storage, 'setItem');
       const testToken: AuthResponse = {token: 'header.payload.sig'};
       service.login('user', 'password', callbacks.done, callbacks.error);
       const testRequest = httpMock.expectOne(`${environment.apiBaseUrl}/authenticate`);
@@ -37,17 +39,34 @@ describe('AuthService', () => {
       testRequest.flush(testToken);
       expect(callbacks.done).toHaveBeenCalled();
       expect(callbacks.error).not.toHaveBeenCalled();
-      expect(localStorage.setItem).toHaveBeenCalledWith(anything(), testToken.token);
+      expect(storage.setItem).toHaveBeenCalledWith(anything(), testToken.token);
     });
 
     it('should call error()', () => {
+      spyOn(storage, 'setItem');
       service.login('user', 'password', callbacks.done, callbacks.error);
       const testRequest = httpMock.expectOne(`${environment.apiBaseUrl}/authenticate`);
       expect(testRequest.request.method).toBe('POST');
       testRequest.flush('', { status: 401, statusText: 'Unauthorized' });
       expect(callbacks.done).not.toHaveBeenCalled();
       expect(callbacks.error).toHaveBeenCalled();
-      expect(localStorage.setItem).not.toHaveBeenCalled();
+      expect(storage.setItem).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('isAuthenticated', () => {
+    it('should send GET request', () => {
+      service.isAuthenticated().subscribe(_ => {});
+      const testRequest = httpMock.expectOne(`${environment.apiBaseUrl}/authenticated`);
+      expect(testRequest.request.method).toBe('GET');
+    });
+  });
+
+  describe('logout', () => {
+    it('should delete token', () => {
+      spyOn(storage, 'removeItem');
+      service.logout();
+      expect(storage.removeItem).toHaveBeenCalled();
     });
   });
 
