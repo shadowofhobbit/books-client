@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {ProfileModule} from './profile/profile.module';
 import {AuthInterceptorService} from './auth-interceptor.service';
 import {LoginModule} from './login/login.module';
+import {SignupModule} from './signup/signup.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {LoginModule} from './login/login.module';
     HttpClientModule,
     LoginModule,
     AppRoutingModule,
-    ProfileModule
+    ProfileModule,
+    SignupModule
   ],
   providers: [
     {

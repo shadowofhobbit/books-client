@@ -1,0 +1,12 @@
+mat-card {
+  margin: auto;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-error {
+  color: red;
+}

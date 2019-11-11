@@ -3,11 +3,13 @@
     <mat-card-content class="card-content">
       <mat-form-field appearance="standard">
         <mat-label>Username</mat-label>
-        <input [(ngModel)]="username" name="username" matInput placeholder="Username" required>
+        <input [(ngModel)]="username" name="username" matInput placeholder="Username"
+               autocomplete="username" required>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Password</mat-label>
-        <input type="password" [(ngModel)]="password" name="password" matInput placeholder="*****" required>
+        <input type="password" [(ngModel)]="password" name="password" matInput placeholder="*****"
+               autocomplete="current-password" required>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>

@@ -9,16 +9,20 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private static readonly STORAGE_KEY = 'books-user';
 
   constructor(private http: HttpClient) {
+  }
+  private static readonly STORAGE_KEY = 'books-user';
+
+  static saveToken(value: AuthResponse) {
+    localStorage.setItem(AuthService.STORAGE_KEY, value.token);
   }
 
   login(username: string, password: string, done, error) {
     this.http
       .post<AuthResponse>(environment.apiBaseUrl + '/authenticate', {username, password})
       .subscribe(value => {
-        localStorage.setItem(AuthService.STORAGE_KEY, value.token);
+        AuthService.saveToken(value);
         done();
       }, _ => error());
   }
