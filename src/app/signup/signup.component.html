@@ -1,5 +1,5 @@
 <mat-card>
-  <form (ngSubmit)="signUp()" #signupForm="ngForm">
+  <form (ngSubmit)="signUp()" #signupForm="ngForm" appPasswordsDiffer>
     <mat-card-content class="card-content">
       <mat-form-field appearance="standard">
         <mat-label>Username</mat-label>
@@ -14,9 +14,15 @@
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Password</mat-label>
-        <input #passwordInput  [(ngModel)]="password" name="password" type="password" matInput placeholder="*****"
+        <input [(ngModel)]="password" name="password" type="password" matInput placeholder="*****"
                minlength="8" autocomplete="new-password" required>
-        <mat-error *ngIf="!passwordInput.validity.valid">Password must be at least 8 characters long</mat-error>
+        <mat-hint>Password must be at least 8 characters long</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Re-enter password</mat-label>
+        <input [(ngModel)]="password2" name="password2" type="password" matInput placeholder="*****"
+               minlength="8" autocomplete="new-password" [errorStateMatcher]="errorMatcher" required>
+        <mat-error *ngIf="signupForm.errors?.passwordsDiffer">Passwords do not match</mat-error>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>

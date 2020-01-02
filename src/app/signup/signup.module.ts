@@ -4,11 +4,12 @@ import {SignupComponent} from './signup.component';
 import {MatButtonModule, MatCardModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material';
+import {PasswordsDifferValidatorDirective} from './passwords-differ.directive';
 
 
 
 @NgModule({
-  declarations: [SignupComponent],
+  declarations: [SignupComponent, PasswordsDifferValidatorDirective],
   imports: [
     CommonModule,
     MatCardModule,

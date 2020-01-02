@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SignupService} from './signup.service';
 import {SignupInvoice} from './signup-invoice.model';
 import {Router} from '@angular/router';
+import {CrossFieldErrorMatcher} from '../CrossFieldErrorMatcher';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +15,8 @@ export class SignupComponent implements OnInit {
   email: string;
   password: string;
   error: boolean;
+  password2: string;
+  errorMatcher = new CrossFieldErrorMatcher();
 
   constructor(private signupService: SignupService, private router: Router) { }
 
