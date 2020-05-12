@@ -1,9 +1,9 @@
 <header class="header">
-  <h1>
-    {{ title }}
-  </h1>
+  <h1>{{ title }}</h1>
+  <a routerLink="/books">Books</a>
+  <a routerLink="/profile">Profile</a>
 </header>
-<main class="container">
+<main class="container mat-app-background">
   <router-outlet></router-outlet>
 </main>
 <footer class="footer">

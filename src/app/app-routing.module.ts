@@ -4,12 +4,14 @@ import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthGuard} from './auth.guard';
 import {SignupComponent} from './signup/signup.component';
+import {AllBooksComponent} from './all-books/all-books.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'books', component: AllBooksComponent},
   {path: '**', component: ProfileComponent, canActivate: [AuthGuard]}
 ];
 

@@ -1,0 +1,10 @@
+<mat-grid-list  cols="4" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let book of lastResult?.content"
+    [colspan]="1"
+    [rowspan]="1"
+    [style.background]="'lightgreen'">
+    <mat-grid-tile-header>{{book.title}}</mat-grid-tile-header>
+    {{book.description}}
+  </mat-grid-tile>
+</mat-grid-list>
