@@ -23,8 +23,8 @@ describe('AuthService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
     });
-    service = TestBed.get(AuthService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(AuthService);
+    httpMock = TestBed.inject(HttpTestingController);
     spyOnAllFunctions(callbacks);
     storage = Object.getPrototypeOf(localStorage);
   });

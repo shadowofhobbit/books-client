@@ -15,8 +15,8 @@ describe('SignupService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
     });
-    service = TestBed.get(SignupService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(SignupService);
+    httpMock = TestBed.inject(HttpTestingController);
     storage = Object.getPrototypeOf(localStorage);
   });
 

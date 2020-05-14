@@ -14,7 +14,7 @@ describe('AuthInterceptorService', () => {
   }));
 
   it('should be created', () => {
-    const service: AuthInterceptorService = TestBed.get(AuthInterceptorService);
+    const service: AuthInterceptorService = TestBed.inject(AuthInterceptorService);
     expect(service).toBeTruthy();
   });
 });

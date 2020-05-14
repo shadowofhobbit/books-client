@@ -10,7 +10,7 @@ import {AuthInterceptorService} from './auth-interceptor.service';
 import {LoginModule} from './login/login.module';
 import {SignupModule} from './signup/signup.module';
 import { AllBooksComponent } from './all-books/all-books.component';
-import {MatGridListModule} from '@angular/material';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [

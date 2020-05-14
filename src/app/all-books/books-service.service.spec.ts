@@ -12,8 +12,8 @@ describe('BooksService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
     });
-    service = TestBed.get(BooksService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(BooksService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   it('should send GET request', () => {

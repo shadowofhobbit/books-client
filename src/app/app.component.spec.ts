@@ -3,7 +3,9 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AppComponent', () => {

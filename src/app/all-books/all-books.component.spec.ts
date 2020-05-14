@@ -4,7 +4,10 @@ import { AllBooksComponent } from './all-books.component';
 import {FormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {MatButtonModule, MatCardModule, MatGridListModule, MatInputModule} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
 import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AllBooksComponent', () => {
