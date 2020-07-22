@@ -1,0 +1,21 @@
+<mat-card *ngIf="book">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{book.title}}</mat-card-title>
+      <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="book-info">
+      <div class="language">Language:</div>
+      <div class="language">{{book.language || defaultValue}}</div>
+      <div class="year">Year:</div>
+      <div class="year">{{book.year || defaultValue}}</div>
+      <div class="description">Description:</div>
+      <div class="description">{{book.description || defaultValue}}</div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary">Edit</button>
+  </mat-card-actions>
+</mat-card>

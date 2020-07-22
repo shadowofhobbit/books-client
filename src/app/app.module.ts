@@ -9,13 +9,11 @@ import {ProfileModule} from './profile/profile.module';
 import {AuthInterceptorService} from './auth-interceptor.service';
 import {LoginModule} from './login/login.module';
 import {SignupModule} from './signup/signup.module';
-import { AllBooksComponent } from './all-books/all-books.component';
-import { MatGridListModule } from '@angular/material/grid-list';
+import {AllBooksModule} from './all-books/all-books.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AllBooksComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +23,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     AppRoutingModule,
     ProfileModule,
     SignupModule,
-    MatGridListModule
+    AllBooksModule
   ],
   providers: [
     {

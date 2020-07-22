@@ -20,6 +20,7 @@ describe('AllBooksComponent', () => {
       imports: [
         HttpClientTestingModule,
         MatGridListModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();
