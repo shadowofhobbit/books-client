@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Book} from '../book.model';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {BooksService} from '../books.service';
 import {switchMap} from 'rxjs/operators';
 
@@ -14,7 +14,8 @@ export class BookComponent implements OnInit {
   id: number;
   defaultValue = 'unknown';
 
-  constructor(private route: ActivatedRoute, private booksService: BooksService) { }
+  constructor(private route: ActivatedRoute, private booksService: BooksService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.pipe(
@@ -25,4 +26,7 @@ export class BookComponent implements OnInit {
     });
   }
 
+  edit() {
+    this.router.navigate([`/books/edit/${this.book.id}`]);
+  }
 }

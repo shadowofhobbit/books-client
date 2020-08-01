@@ -24,6 +24,10 @@ export class AllBooksComponent implements OnInit {
   }
 
   view(id: number) {
-    this.router.navigate([`/books/${id}`]);
+    this.router.navigate([`/books/${id}`]).catch(reason => console.error(reason));
+  }
+
+  create() {
+    this.router.navigate([`/books/edit`]).catch(reason => console.error(reason));
   }
 }

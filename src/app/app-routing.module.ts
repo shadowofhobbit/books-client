@@ -6,6 +6,7 @@ import {AuthGuard} from './auth.guard';
 import {SignupComponent} from './signup/signup.component';
 import {AllBooksComponent} from './all-books/all-books.component';
 import {BookComponent} from './all-books/book/book.component';
+import {EditBookComponent} from './all-books/edit-book/edit-book.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
@@ -13,6 +14,8 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'books', component: AllBooksComponent},
+  {path: 'books/edit', component: EditBookComponent, canActivate: [AuthGuard]},
+  {path: 'books/edit/:id', component: EditBookComponent, canActivate: [AuthGuard]},
   {path: 'books/:id', component: BookComponent},
   {path: '**', component: ProfileComponent, canActivate: [AuthGuard]}
 ];
