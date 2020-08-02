@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {AppRoutingModule} from '../app-routing.module';
 
 
 
@@ -16,6 +17,7 @@ import {FormsModule} from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    AppRoutingModule,
   ]
 })
 export class LoginModule { }
