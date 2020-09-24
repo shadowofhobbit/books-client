@@ -1,15 +1,18 @@
+@import "src/colors";
 .header {
   position: sticky;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-left: 0.5rem;
     margin-right: 1.0rem;
   }
   a {
     margin-right: 1.0rem;
+    color: white;
+    text-decoration: none;
   }
 }
 
@@ -34,6 +37,10 @@
 
 .footer {
   position: fixed;
-  bottom: 0.5rem;
-  left: 0.5rem;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  background-color: $primary;
+  color: white;
 }

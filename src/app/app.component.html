@@ -1,12 +1,14 @@
 <header class="header">
-  <h1>{{ title }}</h1>
-  <a routerLink="/books">Books</a>
-  <a routerLink="/profile">Profile</a>
+  <mat-toolbar color="primary">
+    <h1>{{ title }}</h1>
+    <nav>
+      <a mat-button routerLink="/books">Books</a>
+      <a mat-button routerLink="/profile">Profile</a>
+    </nav>
+  </mat-toolbar>
 </header>
-<main class="container mat-app-background">
+<main class="container">
   <router-outlet></router-outlet>
 </main>
-<footer class="footer">
-  © 2019
-</footer>
+<footer class="footer">© Books 2020</footer>
 

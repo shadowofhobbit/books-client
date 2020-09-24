@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card-container {
+  margin: 1.0rem auto;
+}
+
+@media (min-width: 992px) {
+  .card-container {
+    width: 33%;
+  }
+}

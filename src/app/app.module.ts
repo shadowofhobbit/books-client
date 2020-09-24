@@ -10,6 +10,8 @@ import {AuthInterceptorService} from './auth-interceptor.service';
 import {LoginModule} from './login/login.module';
 import {SignupModule} from './signup/signup.module';
 import {AllBooksModule} from './all-books/all-books.module';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {AllBooksModule} from './all-books/all-books.module';
     AppRoutingModule,
     ProfileModule,
     SignupModule,
-    AllBooksModule
+    AllBooksModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [
     {
