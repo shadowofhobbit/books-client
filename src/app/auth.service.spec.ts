@@ -32,14 +32,14 @@ describe('AuthService', () => {
   describe('login', () => {
     it('should call done() and save token', () => {
       spyOn(storage, 'setItem');
-      const testToken: AuthResponse = {token: 'header.payload.sig'};
+      const testToken: AuthResponse = {accessToken: 'header.payload.sig'};
       service.login('user', 'password', callbacks.done, callbacks.error);
       const testRequest = httpMock.expectOne(`${environment.apiBaseUrl}/authenticate`);
       expect(testRequest.request.method).toBe('POST');
       testRequest.flush(testToken);
       expect(callbacks.done).toHaveBeenCalled();
       expect(callbacks.error).not.toHaveBeenCalled();
-      expect(storage.setItem).toHaveBeenCalledWith(anything(), testToken.token);
+      expect(storage.setItem).toHaveBeenCalledWith(anything(), testToken.accessToken);
     });
 
     it('should call error()', () => {

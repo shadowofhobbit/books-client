@@ -11,10 +11,10 @@ import {AuthService} from '../auth.service';
 })
 export class SignupService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   signUp(signUpInvoice: SignupInvoice) {
     const url = `${environment.apiBaseUrl}/accounts/register`;
-    return this.http.post<AuthResponse>(url, signUpInvoice).pipe(tap(response => {AuthService.saveToken(response); }));
+    return this.http.post<AuthResponse>(url, signUpInvoice).pipe(tap(response => {this.authService.saveToken(response); }));
   }
 }
