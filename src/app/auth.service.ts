@@ -10,18 +10,14 @@ import {catchError, map, tap} from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
-  }
+  authenticated: Subject<boolean> = new Subject<boolean>();
+  readonly loginUrl = '/auth/login';
 
+  readonly refreshTokenUrl = `/auth/refresh`;
   private token: string;
 
-  readonly LOGIN_URL = '/auth/login';
-
-  readonly REFRESH_TOKEN_URL = `/auth/refresh`;
-  authenticated: Subject<boolean> = new Subject<boolean>();
-
-  readonly allowedUrls = new Set(...this.LOGIN_URL, this.REFRESH_TOKEN_URL,
-    'books');
+  constructor(private http: HttpClient) {
+  }
 
   saveToken(value: AuthResponse) {
     this.token = value.accessToken;
@@ -29,7 +25,7 @@ export class AuthService {
 
   login(username: string, password: string, done, error) {
     this.http
-      .post<AuthResponse>(environment.apiBaseUrl + this.LOGIN_URL, {username, password})
+      .post<AuthResponse>(environment.apiBaseUrl + this.loginUrl, {username, password})
       .subscribe(value => {
         this.saveToken(value);
         done();
@@ -47,19 +43,19 @@ export class AuthService {
   }
 
   refreshAccessToken(): Observable<string> {
-    const url = `${environment.apiBaseUrl}${this.REFRESH_TOKEN_URL}`;
+    const url = `${environment.apiBaseUrl}${this.refreshTokenUrl}`;
     return this.http.post<AuthResponse>(url, {})
       .pipe(map(value => {
         this.saveToken(value);
         this.authenticated.next(true);
         return value.accessToken;
-      }), catchError(x => of('')));
+      }), catchError(_ => of('')));
   }
 
   logout() {
     const url = `${environment.apiBaseUrl}/auth/logout`;
     this.token = null;
-    return this.http.delete<void>(url).pipe(tap(x => this.authenticated.next(false)));
+    return this.http.delete<void>(url).pipe(tap(_ => this.authenticated.next(false)));
   }
 
   getAccessToken(): Observable<string> {

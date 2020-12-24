@@ -14,13 +14,14 @@ export class AuthInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!req.url.includes(this.authService.LOGIN_URL) && !req.url.includes(this.authService.REFRESH_TOKEN_URL)) {
+    if (!req.url.includes(this.authService.loginUrl) && !req.url.includes(this.authService.refreshTokenUrl)) {
       return this.authService.getAccessToken()
         .pipe(
           flatMap((value) => {
             const request = req.clone({
               withCredentials: true,
               setHeaders: {
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 Authorization: `Bearer ${value}`
               }
             });
@@ -40,7 +41,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       tap(_ => {},
         (err: any) => {
           if (err instanceof HttpErrorResponse && err.status === 401
-          && !request.url.includes(this.authService.REFRESH_TOKEN_URL)) {
+          && !request.url.includes(this.authService.refreshTokenUrl)) {
             this.authService.authenticated.next(false);
             this.router.navigate(['/login']).then();
           }

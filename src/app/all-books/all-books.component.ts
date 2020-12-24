@@ -10,6 +10,7 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./all-books.component.scss']
 })
 export class AllBooksComponent implements OnInit {
+  private static readonly size = 2147483647;
   lastResult: SearchResult<Book>;
   authenticated: boolean;
 
@@ -17,14 +18,14 @@ export class AllBooksComponent implements OnInit {
               private authService: AuthService, private router: Router) {
   }
 
-  private readonly SIZE = 2147483647;
+
 
   ngOnInit() {
     this.authService.authenticated.subscribe(
       auth => this.authenticated = auth
     );
 
-    this.booksService.getAll(0, this.SIZE).subscribe(
+    this.booksService.getAll(0, AllBooksComponent.size).subscribe(
       result => {
         this.lastResult = result;
       }

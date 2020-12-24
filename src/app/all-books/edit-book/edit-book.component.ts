@@ -27,9 +27,7 @@ export class EditBookComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.pipe(
       filter(params => params.get('id') != null),
-      switchMap((params: ParamMap) => {
-          return this.booksService.get(Number(params.get('id')));
-        }
+      switchMap((params: ParamMap) => this.booksService.get(Number(params.get('id')))
       )).subscribe(book => {
       this.bookId = book.id;
       this.bookForm.patchValue(book);
