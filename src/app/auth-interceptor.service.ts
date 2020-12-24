@@ -39,8 +39,10 @@ export class AuthInterceptorService implements HttpInterceptor {
     return next.handle(request).pipe(
       tap(_ => {},
         (err: any) => {
-          if (err instanceof HttpErrorResponse && err.status === 401) {
-            this.router.navigate(['/login']);
+          if (err instanceof HttpErrorResponse && err.status === 401
+          && !request.url.includes(this.authService.REFRESH_TOKEN_URL)) {
+            this.authService.authenticated.next(false);
+            this.router.navigate(['/login']).then();
           }
         })
     );

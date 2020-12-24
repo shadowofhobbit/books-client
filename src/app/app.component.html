@@ -3,7 +3,9 @@
     <h1>{{ title }}</h1>
     <nav>
       <a mat-button routerLink="/books">Books</a>
-      <a mat-button routerLink="/profile">Profile</a>
+      <a mat-button routerLink="/profile" *ngIf="authenticated">Profile</a>
+      <a mat-button routerLink="/login" *ngIf="!authenticated">Log in</a>
+      <a mat-button (click)="onLogout()" *ngIf="authenticated">Log out</a>
     </nav>
   </mat-toolbar>
 </header>
