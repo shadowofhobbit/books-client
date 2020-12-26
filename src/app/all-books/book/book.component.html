@@ -7,15 +7,15 @@
   </mat-card-header>
   <mat-card-content>
     <div class="book-info">
-      <div class="language">Language:</div>
+      <div class="language" i18n>Language:</div>
       <div class="language">{{book.language || defaultValue}}</div>
-      <div class="year">Year:</div>
+      <div class="year" i18n>Year:</div>
       <div class="year">{{book.year || defaultValue}}</div>
-      <div class="description">Description:</div>
+      <div class="description" i18n>Description:</div>
       <div class="description">{{book.description || defaultValue}}</div>
     </div>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-raised-button color="primary" (click)="edit()">Edit</button>
+    <button mat-raised-button color="primary" (click)="edit()" i18n>Edit</button>
   </mat-card-actions>
 </mat-card>

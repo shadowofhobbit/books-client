@@ -9,6 +9,13 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": "src/locale/messages.ru.xlf",
+          "baseHref": "ru"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -56,6 +63,11 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "ru": {
+              "aot": true,
+              "localize": ["ru"],
+              "outputPath": "dist/BooksUser-ru"
             }
           }
         },
@@ -67,6 +79,12 @@
           "configurations": {
             "production": {
               "browserTarget": "BooksUser:build:production"
+            },
+            "en": {
+              "browserTarget": "app:build:en"
+            },
+            "ru": {
+              "browserTarget": "BooksUser:build:ru"
             }
           }
         },
@@ -112,6 +130,20 @@
           "configurations": {
             "production": {
               "devServerTarget": "BooksUser:serve:production"
+            }
+          }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": ".",
+              "genDir": "src/locale",
+              "defaultLanguage": "en-US",
+              "languages": [
+                "ru"
+              ]
             }
           }
         }
