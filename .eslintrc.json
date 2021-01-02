@@ -47,7 +47,12 @@
           "off",
           "always"
         ],
-        "import/order": "off"
+        "import/order": "off",
+        //disabling the base rule as it reports incorrect errors with enums
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": [
+          "error"
+        ]
       }
     },
     {

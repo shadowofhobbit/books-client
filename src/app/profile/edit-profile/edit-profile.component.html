@@ -1,0 +1,27 @@
+<div class="card-container">
+  <mat-card>
+    <form [formGroup]="userForm" (ngSubmit)="update()">
+    <mat-card-header>
+      <mat-card-title>{{user?.username}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="user-info">
+        <mat-form-field appearance="outline">
+          <mat-label>Birthday</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthday">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>About me</mat-label>
+          <textarea matInput name="description" formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary">Save</button>
+    </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
