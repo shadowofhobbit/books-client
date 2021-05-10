@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {RouterTestingModule} from '@angular/router/testing';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
@@ -21,6 +22,7 @@ describe('AppComponent', () => {
         MatInputModule,
         MatButtonModule,
         MatCardModule,
+        MatToolbarModule,
         RouterTestingModule
       ]
     }).compileComponents();
