@@ -1,2 +1,2 @@
-@import '~@angular/material/theming';
-$primary: mat-color($mat-deep-purple, 500);
+@use '~@angular/material' as mat;
+$primary: mat.get-color-from-palette(mat.$deep-purple-palette, 500);
