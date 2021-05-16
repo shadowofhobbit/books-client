@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh 'npm run test'
+                sh 'npm run test --watch false'
             }
         }
         stage('Build docker image') {
