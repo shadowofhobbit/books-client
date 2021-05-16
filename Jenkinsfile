@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh 'npm run test --watch false'
+                sh 'ng test --karma-config=karma.conf.jenkins.js'
             }
         }
         stage('Build docker image') {
