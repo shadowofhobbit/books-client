@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import {Observable} from 'rxjs';
 import {SignupService} from './signup.service';
 import {RouterTestingModule} from '@angular/router/testing';
+import {SignupInvoice} from './signup-invoice.model';
+import {AuthResponse} from '../auth-response';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -42,7 +44,7 @@ describe('SignupComponent', () => {
 });
 
 class MockSignUpService {
-  signUp(): Observable<object> {
-    return new Observable<object>();
+  signUp(_: SignupInvoice): Observable<AuthResponse> {
+    return new Observable<AuthResponse>();
   }
 }
