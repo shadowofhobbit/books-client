@@ -19,3 +19,8 @@
     <button mat-raised-button color="primary" (click)="edit()">Edit</button>
   </mat-card-actions>
 </mat-card>
+<h2>Reviews</h2>
+<mat-paginator [length]="reviewsCount" [pageSize]="reviewsPageSize" [pageIndex]="page"
+(page)="pageChanged($event)"></mat-paginator>
+<app-review *ngFor="let review of reviews" [review]="review"></app-review>
+

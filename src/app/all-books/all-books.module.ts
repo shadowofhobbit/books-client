@@ -11,6 +11,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {ReviewModule} from '../review/review.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -28,8 +30,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
+    MatPaginatorModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReviewModule,
+    MatPaginatorModule
   ]
 })
 export class AllBooksModule { }
